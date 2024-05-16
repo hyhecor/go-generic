@@ -6,7 +6,7 @@ func Wrap[S ~[]A, A any](aa S) slice[A] {
 	return []A(aa)
 }
 
-func (sl slice[A]) Slice() []A {
+func (sl slice[A]) Value() []A {
 	return sl
 }
 
