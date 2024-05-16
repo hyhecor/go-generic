@@ -11,7 +11,7 @@ func Test_Cdr(t *testing.T) {
 
 	fold := hof.Fold(func(a, b int) int { return a + b }, 0)
 
-	aa := New([]int{1, 2, 3})
+	aa := Wrap([]int{1, 2, 3})
 
 	aa, ok := aa.Cdr()
 
@@ -36,7 +36,7 @@ func Test_Cdr(t *testing.T) {
 
 func Test_Cdr_loop(t *testing.T) {
 
-	for aa, ok := New([]int{1, 2, 3}).Cdr(); ok; aa, ok = aa.Cdr() {
+	for aa, ok := Wrap([]int{1, 2, 3}).Cdr(); ok; aa, ok = aa.Cdr() {
 
 		switch len(aa) {
 		case 2:

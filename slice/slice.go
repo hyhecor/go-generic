@@ -1,20 +1,20 @@
 package slice
 
-type Slice[A any] []A
+type slice[A any] []A
 
-func New[A any](aa []A) Slice[A] {
-	return aa
+func Wrap[S ~[]A, A any](aa S) slice[A] {
+	return []A(aa)
 }
 
-func (sl Slice[A]) Slice() []A {
+func (sl slice[A]) Slice() []A {
 	return sl
 }
 
-func (sl Slice[A]) Len() int {
+func (sl slice[A]) Len() int {
 	return len(sl)
 }
 
-func (sl Slice[A]) Clone() []A {
+func (sl slice[A]) Clone() []A {
 
 	aa := make([]A, len(sl))
 
@@ -23,7 +23,7 @@ func (sl Slice[A]) Clone() []A {
 	return aa
 }
 
-func (sl Slice[A]) Car() (a A, ok bool) {
+func (sl slice[A]) Car() (a A, ok bool) {
 
 	if len(sl) == 0 {
 		return a, false
@@ -32,7 +32,7 @@ func (sl Slice[A]) Car() (a A, ok bool) {
 	return sl[0], true
 }
 
-func (sl Slice[A]) Cdr() (aa Slice[A], ok bool) {
+func (sl slice[A]) Cdr() (aa slice[A], ok bool) {
 
 	if len(sl) < 1 {
 		return []A{}, false

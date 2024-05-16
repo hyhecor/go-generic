@@ -19,7 +19,7 @@ func (p pair[A, B]) Set() (A, B) {
 
 // Pair
 //
-//	(a -> (b, c)) -> a -> {b, c}
+//	(b, c) -> {b, c}
 func Pair[A any, B any](a A, b B) pair[A, B] {
 
 	return pair[A, B]{
